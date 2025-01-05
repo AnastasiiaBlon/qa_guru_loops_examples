@@ -1,19 +1,21 @@
-package guru.qa;
+package guru.qa.implementations;
+
+import guru.qa.Client;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class LoopTypeQueueTest {
+public class QueueAndWhileLoop {
 
-    private final Queue<ClientsTest> clientsTestQueue = new LinkedList<>();
+    private final Queue<Client> clientsQueue = new LinkedList<>();
 
     public void printClients() {
         System.out.println("queue.printClients");
 
-        if (!clientsTestQueue.isEmpty()) {
-            var iterator = clientsTestQueue.iterator();
+        if (!clientsQueue.isEmpty()) {
+            var iterator = clientsQueue.iterator();
             do {
-                ClientsTest client = iterator.next();
+                Client client = iterator.next();
                 System.out.println("Client name: " + client.getClientName() +
                         ", Client country: " + client.getClientCountry() +
                         ", Requests quantity in December: " + client.getRequestsQuantityInDec() +
@@ -24,23 +26,24 @@ public class LoopTypeQueueTest {
         }
     }
 
-    public void addClient(ClientsTest client) {
-        clientsTestQueue.offer(client);
+    public void addClient(Client client) {
+        clientsQueue.offer(client);
         System.out.println("queue.addClient(" + client + ")");
     }
 
     public void removeClient() {
-        ClientsTest removedClient = clientsTestQueue.poll();
+        Client removedClient = clientsQueue.poll();
         if (removedClient != null) {
             System.out.println("queue.removeGame(" + removedClient + ")");
         } else {
             System.out.println("Queue is empty.");
         }
+        System.out.println("Remain clients: " + clientsQueue);
     }
 
-    public void findClient(ClientsTest client) {
+    public void findClient(Client client) {
         System.out.println("queue.findClient(" + client + ")");
-        if (clientsTestQueue.contains(client)) {
+        if (clientsQueue.contains(client)) {
             System.out.println("Game found: " + client.getClientName());
         } else {
             System.out.println("Game not found: " + client.getClientName());

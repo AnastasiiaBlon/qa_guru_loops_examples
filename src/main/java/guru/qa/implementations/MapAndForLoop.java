@@ -1,32 +1,32 @@
-package guru.qa;
+package guru.qa.implementations;
+
+import guru.qa.Client;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class LoopTypeMapTest {
-    private final Map<Integer, ClientsTest> clients = new HashMap<>();
+public class MapAndForLoop {
+    private final Map<Integer, Client> clients = new HashMap<>();
     private int nextKey = 1;
 
     public void printClients() {
         for (var entry : clients.entrySet()) {
-            System.out.println("Key: " + entry.getKey() + ", Client name: " + entry.getValue().getClientName() +
-                    ", Client country: " + entry.getValue().getClientCountry() +
-                    ", Requests quantity in December: " + entry.getValue().getRequestsQuantityInDec() +
-                    ", Is the client satisfied: " + entry.getValue().isSatisfied());
+            System.out.println("Key: " + entry.getKey() + ", value: " + entry.getValue().toString());
         }
     }
 
-    public void addClient(ClientsTest client) {
+    public void addClient(Client client) {
         clients.put(nextKey++, client);
         System.out.println("map.addClient(" + client + ")");
     }
 
-    public void removeClient(ClientsTest client) {
+    public void removeClient(Client client) {
         System.out.println("map.remove(" + client + ")");
         clients.entrySet().removeIf(entry -> entry.getValue().equals(client));
+        System.out.println("Remain clients: " + clients);
     }
 
-    public void findClient(ClientsTest client) {
+    public void findClient(Client client) {
         if (clients.containsValue(client)) {
             System.out.println("Client found: " + client.getClientName());
         } else {

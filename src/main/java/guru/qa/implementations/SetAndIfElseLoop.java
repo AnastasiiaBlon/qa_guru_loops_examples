@@ -1,18 +1,20 @@
-package guru.qa;
+package guru.qa.implementations;
+
+import guru.qa.Client;
 
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-public class LoopTypeSetTest {
-    public final Set<ClientsTest> clients = new HashSet<>();
+public class SetAndIfElseLoop {
+    public final Set<Client> clients = new HashSet<>();
 
     public void printClients() {
         System.out.println("set.printClients");
-        Iterator<ClientsTest> iterator = clients.iterator();
+        Iterator<Client> iterator = clients.iterator();
 
         while (iterator.hasNext()) {
-            ClientsTest clients = iterator.next();
+            Client clients = iterator.next();
             System.out.println("Client name: " + clients.getClientName() +
                     ", Client country: " + clients.getClientCountry() +
                     ", Requests quantity in December: " + clients.getRequestsQuantityInDec() +
@@ -20,21 +22,22 @@ public class LoopTypeSetTest {
         }
     }
 
-    public void addClient(ClientsTest client) {
+    public void addClient(Client client) {
         clients.add(client);
         System.out.println("set.addClient(" + client + ")");
     }
 
-    public void removeClient(ClientsTest client) {
+    public void removeClient(Client client) {
         boolean removed = clients.remove(client);
         if (removed) {
             System.out.println("set.removeClient(" + client + ")");
         } else {
             System.out.println("Client is not found in set: " + client.getClientName());
         }
+        System.out.println("Remain clients: " + clients);
     }
 
-    public void findClient(ClientsTest client) {
+    public void findClient(Client client) {
         System.out.println("set.findClient(" + client + ")");
         if (clients.contains(client)) {
             System.out.println("Client found: " + client.getClientName());

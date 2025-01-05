@@ -1,31 +1,34 @@
 package guru.qa;
 
-import java.util.*;
+import guru.qa.implementations.ListAndForLoop;
+import guru.qa.implementations.MapAndForLoop;
+import guru.qa.implementations.QueueAndWhileLoop;
+import guru.qa.implementations.SetAndIfElseLoop;
 
-public class LoopsMainTest {
+public class MainApplication {
     public static void main(String[] args) {
 
-        ClientsTest swissport = new ClientsTest("Swissport", "Belgium", 23, true);
-        ClientsTest aviator = new ClientsTest("Aviator", "Sweden", 17, true);
-        ClientsTest dnata = new ClientsTest("dnata", "OAE", 39, true);
-        ClientsTest celebi = new ClientsTest("Celebi", "India", 24, false);
+        Client swissport = new Client("Swissport", "Belgium", 23, true);
+        Client aviator = new Client("Aviator", "Sweden", 17, true);
+        Client dnata = new Client("dnata", "OAE", 39, true);
+        Client celebi = new Client("Celebi", "India", 24, false);
 
-        LoopTypeListTest listOfClients = new LoopTypeListTest();
+        ListAndForLoop listOfClients = new ListAndForLoop();
         // add objects in list
         listOfClients.addClient(swissport);
         listOfClients.addClient(aviator);
         listOfClients.addClient(dnata);
         listOfClients.addClient(celebi);
         // print clients' list
-        listOfClients.printClientsDesc();
+        listOfClients.printClients();
         // check if client "Swissport" in the clients' list
         listOfClients.clientIsInList(swissport);
         // remove client from list
         listOfClients.removeClient(dnata);
         // print clients' list after removing client
-        listOfClients.printClientsAsc();
+        listOfClients.printClients();
 
-        LoopTypeSetTest setOfClients = new LoopTypeSetTest();
+        SetAndIfElseLoop setOfClients = new SetAndIfElseLoop();
         // add objects in set
         setOfClients.addClient(swissport);
         setOfClients.addClient(aviator);
@@ -38,7 +41,7 @@ public class LoopsMainTest {
         // check if client "Celebi" in the clients' set
         setOfClients.findClient(celebi);
 
-        LoopTypeMapTest clientsMap = new LoopTypeMapTest();
+        MapAndForLoop clientsMap = new MapAndForLoop();
         // add objects in map
         clientsMap.addClient(swissport);
         clientsMap.addClient(aviator);
@@ -51,7 +54,7 @@ public class LoopsMainTest {
         // check if client "Celebi" in the clients' map
         clientsMap.findClient(celebi);
 
-        LoopTypeQueueTest clientsQueue = new LoopTypeQueueTest();
+        QueueAndWhileLoop clientsQueue = new QueueAndWhileLoop();
         // add objects in queue
         clientsQueue.addClient(swissport);
         clientsQueue.addClient(aviator);
