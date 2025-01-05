@@ -25,6 +25,7 @@ public class SetAndIfElseLoop {
     public void addClient(Client client) {
         clients.add(client);
         System.out.println("set.addClient(" + client + ")");
+        System.out.println("List of clients: " + clients);
     }
 
     public void removeClient(Client client) {

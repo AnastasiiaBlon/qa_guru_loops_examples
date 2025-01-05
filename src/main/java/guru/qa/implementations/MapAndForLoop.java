@@ -18,6 +18,7 @@ public class MapAndForLoop {
     public void addClient(Client client) {
         clients.put(nextKey++, client);
         System.out.println("map.addClient(" + client + ")");
+        System.out.println("List of clients: " + clients);
     }
 
     public void removeClient(Client client) {

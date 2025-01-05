@@ -18,6 +18,7 @@ public class ListAndForLoop {
     public void addClient(Client client) {
         clientsList.add(client);
         System.out.println("list.addClient(" + client + ")");
+        System.out.println("List of clients: " + clientsList);
     }
 
     public void removeClient(Client client) {

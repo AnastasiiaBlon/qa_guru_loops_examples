@@ -29,6 +29,7 @@ public class QueueAndWhileLoop {
     public void addClient(Client client) {
         clientsQueue.offer(client);
         System.out.println("queue.addClient(" + client + ")");
+        System.out.println("List of clients: " + clientsQueue);
     }
 
     public void removeClient() {
